@@ -1,17 +1,28 @@
 {
   "manifest_version": 3,
 
-  "name": "Chrome Extension TypeScript Starter",
-  "description": "Chrome Extension, TypeScript, Visual Studio Code",
-  "version": "1.0",
+  "name": "QueryJar",
+  "description": "Your personal SQL Monkey.",
+  "version": "1.2",
 
   "options_ui": {
     "page": "options.html"
   },
 
   "action": {
-    "default_icon": "icon.png",
+    "default_icon": {
+      "16": "queryjarsolid.png",
+      "48": "queryjarsolid.png",
+      "128": "queryjarsolid.png"
+    },
     "default_popup": "popup.html"
+  },
+
+  "icons": {
+    "16": "queryjarsolid.png",
+    "32": "queryjarsolid.png",
+    "48": "queryjarsolid.png",
+    "128": "queryjarsolid.png"
   },
 
   "content_scripts": [
@@ -26,10 +37,15 @@
   },
 
   "permissions": [
-    "storage"
+    "storage",
+    "clipboardWrite"
   ],
 
   "host_permissions": [
     "<all_urls>"
-  ]
+  ],
+
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
 }

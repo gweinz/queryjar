@@ -5,10 +5,10 @@ const srcDir = path.join(__dirname, "..", "src");
 
 module.exports = {
     entry: {
-      popup: path.join(srcDir, 'popup.tsx'),
-      options: path.join(srcDir, 'options.tsx'),
-      background: path.join(srcDir, 'background.ts'),
-      content_script: path.join(srcDir, 'content_script.tsx'),
+      popup: path.join(srcDir, 'popup/popup.tsx'),
+      options: path.join(srcDir, 'popup/options.tsx'),
+      background: path.join(srcDir, 'background/background.ts'),
+      content_script: path.join(srcDir, 'content/content_script.tsx'),
     },
     output: {
         path: path.join(__dirname, "../dist/js"),
@@ -29,6 +29,10 @@ module.exports = {
                 use: "ts-loader",
                 exclude: /node_modules/,
             },
+            {
+                test: /\.css$/,                                                                                                                                                             
+                use: ["style-loader", "css-loader", "sass-loader"],                                                                                                                          
+              },  
         ],
     },
     resolve: {
